@@ -1,0 +1,57 @@
+<h1 class="mt-3">Selectores anidados</h1>
+
+<hr>
+
+<form [formGroup]="myForm">
+
+  <!-- Region -->
+  <div class="row mb-3">
+    <div class="col">
+      <label for="" class="form-label">Contiente: </label>
+      <select class="form-control" formControlName="region">
+        <option value="">-- Seleccione Contiente --</option>
+        <option [value]="region" *ngFor="let region of regions">{{ region }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Countries -->
+  <div class="row mb-3" *ngIf="countriesByRegion.length > 0">
+    <div class="col">
+      <label for="" class="form-label">País: </label>
+      <select id="" class="form-control" formControlName="country">
+        <option value="">-- Seleccione País--</option>
+        <option [value]="country.cca3" *ngFor="let country of countriesByRegion">{{ country.name }}</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Borders -->
+  <div class="row mb-3" *ngIf="borders.length > 0">
+    <div class="col">
+      <label for="" class="form-label">Fronteras: </label>
+      <select id="" class="form-control" formControlName="border">
+        <option value="">-- Seleccione Frontera--</option>
+        <option [value]="borde.cca3" *ngFor="let borde of borders">{{ borde.name }}</option>
+      </select>
+    </div>
+  </div>
+
+
+
+</form>
+
+<h5>Formulario:</h5>
+<div class="row">
+  <div class="col-12">Is form valid?: {{ myForm.valid }}</div>
+  <div class="col">
+    <pre>{{ myForm.value | json }}</pre>
+  </div>
+  <div class="col">
+
+  </div>
+  <div class="col">
+
+  </div>
+</div>
+
